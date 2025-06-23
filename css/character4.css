@@ -1,0 +1,201 @@
+/* ========== 全局設定 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Kurenaido', 'Arial', sans-serif;
+  color: #000;
+  overflow-x: hidden;
+  background: url('../image/character4backgroundtablet.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ========== 返回首頁圖標 ========== */
+.home-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.home-logo img {
+  width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.home-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* ========== 左右箭頭按鈕 ========== */
+.pre-arrow, .next-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  font-size: 2rem;
+  padding: 12px 18px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1600;
+}
+
+.pre-arrow {
+  color: #000;
+  left: 30px;
+}
+
+.next-arrow {
+  color: #000;
+  right: 30px;
+}
+
+.pre-arrow:hover,
+.next-arrow:hover {
+  background-color: #90c9ff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ========== 漢堡選單 ========== */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  color: #000;
+  display: block;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  width: 200px;
+  height: 100%;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 60px 20px;
+}
+
+.nav-menu ul li {
+  margin: 20px 0;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+}
+
+.nav-menu.show {
+  transform: translateX(0);
+}
+
+/* 子選單 */
+.has-submenu .submenu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding-left: 15px;
+  list-style: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.has-submenu.active .submenu {
+  max-height: 500px;
+  margin-top: 10px;
+}
+
+.has-submenu > a::after {
+  content: ' ▼';
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+/* ========== 版面主體 ========== */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 1000px;
+  gap: 20px;
+  opacity: 0;
+  transform: translateX(100px);
+  animation: slideInRight 1s forwards;
+  flex-direction: row;
+}
+
+/* 圖片樣式（右側） */
+.character-img {
+  width: 45%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* 人物簡介框（左側） */
+.intro-box {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  border-radius: 12px;
+  width: 45%;
+  font-family: 'Cormorant Garamond', 'Zen Kurenaido', serif;
+}
+
+.intro-box h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
+}
+
+/* 動畫設定 */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== 響應式設定 ========== */
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .character-img,
+  .intro-box {
+    width: 90%;
+  }
+}
