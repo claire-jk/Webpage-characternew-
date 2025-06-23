@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Given 被贈與的未來</title>
+  <link rel="stylesheet" href="css/character2.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Lexend:wght@100..900&family=Zen+Kurenaido&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a href="index.html" class="home-logo">
+    <img src="image/main-icon.png" alt="返回首頁" />
+  </a>
+  <!-- 左側箭頭 -->
+  <a href="character1.html" class="pre-arrow" title="前往上一頁">&#9668;</a>
+
+  <!-- 主要內容容器 -->
+  <div class="container">
+
+    <!-- 手機版：上區塊 / 電腦版：左區塊 -->
+    <section class="block block-left">
+      <div class="content from-left">
+        <img src="image/character2left.jpg" alt="角色左圖" class="character-img" />
+        <div class="intro-box">
+          <h2>梶秋彥</h2>
+          <p>生日:10月21日</p>
+          <br>
+          <p>所屬樂團:Given</p>
+          <br>
+          <p>樂團定位:Dr.</p>
+          <br>
+          <p>聲優:江口拓也</p>
+          <br>
+          <p>父親為小提琴家，但雙親的子女教養意識薄弱。極受女性歡迎，一度為了生活而發展出複雜的人際關係。心思細膩，尤其對感情之事觀察力極佳，從一開始就知曉立夏和真冬的戀情。從小學習小提琴，和村田雨月曾經是戀人關係，在高三時父母分居後和開始和雨月同居，在高中畢業之際雨月主動提出分手，但兩人依然持續了兩年以上的室友兼炮友關係。在一次和雨月的衝突中被趕出家門，窮途末路下借宿春樹家，卻因遷怒而差點侵犯春樹，接著意外與春樹展開了同居生活。於CAC選拔演出後意識到自己仍是愛著音樂，和雨月為過去傷害他的事道歉後正式分手。改過自新獨立租屋、清理人際關係，並重新認真練習小提琴。如今春秋兩人為情侶關係。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 手機版：下區塊 / 電腦版：右區塊 -->
+    <section class="block block-right">
+      <div class="content from-right">
+        <div class="intro-box">
+          <h2>中山春樹</h2>
+          <p>生日:7月13日</p>
+          <br>
+          <p>所屬樂團:Given</p>
+          <br>
+          <p>樂團定位:Ba.</p>
+          <br>
+          <p>聲優:中澤匡智</p>
+          <br>
+          <p>出生中產家庭，有兩個姊姊，家庭關係和睦，個性和善圓滑，作為樂團的團長將一切行政業務打理得僅條有序。前樂團因主唱落跑解散後，相中了才華洋溢的立夏和秋彥，力邀兩人組成「given」的前身「season」。對同校的學弟秋彥一見鐘情，並以此為契機留起長髮，之後遭秋彥強行揭露心情並拒絕後將其剪短。在心死的狀態下收留了無家可歸的秋彥，卻意外讓秋彥發現了自己對春樹的心意。如今春秋兩人為情侶關係。</p>
+        </div>
+        <img src="image/character2right.jpg" alt="角色右圖" class="character-img" />
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 漢堡選單 -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <!-- 導覽列 -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="mymainpage2.html">故事簡介</a></li>
+      <li class="has-submenu">
+        <a href="#" class="submenu-toggle">功能導覽</a>
+        <ul class="submenu">
+          <li><a href="character.html">登場角色</a></li>
+          <li><a href="song.html">歌曲</a></li>
+          <li><a href="comic.html">漫畫/動畫</a></li>
+          <li><a href="bandprofile.html">樂團介紹</a></li>
+          <li><a href="author.html">作者帳號</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    // 漢堡選單切換
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // 子選單滑動切換
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parentLi = this.parentElement;
+        const submenu = this.nextElementSibling;
+
+        if (submenu.style.display === 'block') {
+          submenu.style.maxHeight = '0';
+          submenu.style.display = 'none';
+          parentLi.classList.remove('active');
+        } else {
+          submenu.style.display = 'block';
+          submenu.style.maxHeight = submenu.scrollHeight + 'px';
+          parentLi.classList.add('active');
+        }
+      });
+    });
+
+    // 滾動進場動畫
+    const sections = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    // 小框點擊放大顯示簡介
+    const items = document.querySelectorAll('.item');
+    const overlay = document.getElementById('overlay');
+
+    items.forEach(item => {
+      // 設定內容簡介文字
+      item.querySelector('p').textContent = item.dataset.desc;
+
+      item.addEventListener('click', () => {
+        if (item.classList.contains('active')) return;
+        items.forEach(i => i.classList.remove('active'));
+        overlay.classList.add('active');
+        item.classList.add('active');
+      });
+    });
+
+    overlay.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      overlay.classList.remove('active');
+    });
+  </script>
+  <!-- 右側箭頭 -->
+  <a href="character3.html" class="next-arrow" title="前往下一頁">&#9658;</a>
+</body>
+</html>
